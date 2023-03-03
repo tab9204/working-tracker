@@ -1,0 +1,5 @@
+:root {--red:#FF1654; --yellow: #F2AF29; --grey:#e0dcdc; --white:#f2f0f0; --blue:#4B71AA; --smoke: #D1D1D1; --green: #659B5E;}
+::-webkit-scrollbar {width: 0px;}
+html{height: 100%; font-family: 'IBM Plex Sans', sans-serif;  -webkit-user-select: none; -ms-user-select: none;user-select: none;}
+body{height: 100%; margin:0px; overflow: hidden; overscroll-behavior-y: contain;}
+#app{height: 100%; display: flex; flex-direction: column; overflow: hidden;}
