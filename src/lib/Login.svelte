@@ -1,5 +1,5 @@
 <script>
-    import {pb, user} from "./pocketbase";
+    import {pb, user} from "./stores";
 
     let username;
     let password;
@@ -21,12 +21,33 @@
 {#if error}
     <div id="error">IDK something didn't work</div>
 {/if}
-<input type="text" placeholder="Username" bind:value={username}>
-<input type="text" placeholder="Password" bind:value={password}>
-<button on:click={login}>Login</button>
+<div class="login">
+    <input type="text" placeholder="Username" bind:value={username}>
+    <input type="text" placeholder="Password" bind:value={password}>
+    <button on:click={login}>Login</button>
+</div>
+
 
 
 <style>
+    .login{
+        display: flex;
+        flex-direction: column;
+        gap: 10px
+    }
+    .login input{
+        font-size: 1.2rem;
+    }
+    .login button{
+        width: 50%;
+        font-size: 1.2rem;
+        padding: 5px;
+        margin-top: 10px;
+        align-self: center;
+        background: var(--blue);
+        border: none;
+        border-radius: 5px;
+    }
     #error{
         background: var(--red);
         padding: 5px;

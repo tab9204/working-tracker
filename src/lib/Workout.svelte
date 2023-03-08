@@ -1,5 +1,5 @@
 <script>
-    import {startWorkout, workoutId, workoutSets} from "./workoutstores";
+    import {beginWorkout, currentWorkoutId} from "./stores.js";
     import Icon from './Icon.svelte';
 
     export let workout;
@@ -24,9 +24,8 @@
                 {/each}
             </div>
             <button on:click={()=>{
-                workoutId.set(workout.id);
-                workoutSets.set(workout.sets);
-                startWorkout.set(true);
+                currentWorkoutId.set(workout.id);
+                beginWorkout.set(true);
             }}>Start workout</button>
         </div>
     {/if}
@@ -37,6 +36,8 @@
     .section{
         width: 90%;
         margin: 0px auto; 
+        background: var(--grey);
+        border-radius: 5px;
     }
     .header{
         display: flex;
@@ -58,6 +59,9 @@
     }
     .content{
         padding: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .breakdown{
         display: flex;
@@ -65,11 +69,12 @@
         align-items: center;
     }
     button{
-        width: 100%;
+        width: 80%;
         height: 40px;
         border: 1px solid;
         border-radius: 5px;
         margin-top: 20px;
         background: var(--blue);
+        font-size: 1.2rem;
         }
 </style>
