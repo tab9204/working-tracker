@@ -86,10 +86,10 @@
   #pageContent{
     height: 100%;
     overflow-y: auto;
-    width: calc(100% - 10px);
+    width: calc(100% - 20px);
     max-width: 640px;
     background: var(--white); 
-    padding:5px;
+    padding:10px;
     margin: 0px auto;
   }
 </style>

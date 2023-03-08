@@ -33,14 +33,14 @@
     .login{
         display: flex;
         flex-direction: column;
-        gap: 10px
+        gap: 15px
     }
     .login input{
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
     .login button{
         width: 50%;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         padding: 5px;
         margin-top: 10px;
         align-self: center;

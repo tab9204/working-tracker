@@ -62,8 +62,7 @@
                     {workout.sets[set].name}
                 </div>
                 <div class="weightAndReps">
-                    <div>Weight: {workout.sets[set].weight}</div>
-                    <div>Reps: {workout.sets[set].reps}</div>
+                    <div>{workout.sets[set].weight} lbs x {workout.sets[set].reps}</div>
                 </div>
             </div>
             {/key}
@@ -100,19 +99,20 @@
         display: flex;
         flex-direction: column;
         width: 90%;
-        gap: 13px;
+        gap: 15px;
         margin: 0px auto;
     }
     .passFail button{
-        height: 45px;
+        height: 55px;
         border: 1px solid;
+        border-radius: 5px;
     }
     .setName{
-        font-size: 2.2rem;
+        font-size: 2.5rem;
         margin: 10px 0;
     }
     .weightAndReps{
-        font-size: 1.5rem;
+        font-size: 2rem;
         text-align: center;
     }
     .incrementPopup{

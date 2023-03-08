@@ -19,6 +19,8 @@
         <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40"><path d="m15.792 29.833-9.375-9.375 2-2 7.375 7.417 15.791-15.792 1.959 2Z"/></svg>
     {:else if icon == "expand"}
         <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40"><path d="m20 25.625-10-10 1.958-1.958L20 21.708l8.042-8.041 1.958 2Z"/></svg>
+    {:else if icon == "start"}
+        <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40"><path d="M3.333 30V10h2.792v20Zm23.292.042-1.958-1.959 6.666-6.708H9.958v-2.75h21.375l-6.625-6.708 1.917-1.959L36.667 20Z"/></svg>
     {:else}
         <p>No icon</p>
     {/if}
