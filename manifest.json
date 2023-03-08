@@ -3,13 +3,13 @@
     "name": "Working out",
     "icons": [
       {
-        "src": "./src/assets/svelte.svg",
+        "src": "./svelte.svg",
         "type": "image/svg+xml",
         "sizes": "192x192",
         "purpose": "any"
       },
       {
-        "src": "./src/assets/svelte.svg",
+        "src": "./svelte.svg",
         "type": "image/svg+xml",
         "sizes": "512x512",
         "purpose": "any"

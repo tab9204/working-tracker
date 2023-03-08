@@ -20,10 +20,15 @@
   const serviceWorkerRegistration = async ()=>{
     //register service worker
     if ('serviceWorker' in navigator) {
-      var registration = await navigator.serviceWorker.register('../service-worker.js');
-      console.log("service worker registered");
-      //if the registration has been changed update it
-      registration.update();
+      try{
+        var registration = await navigator.serviceWorker.register('./service-worker.js');
+        console.log("service worker registered");
+        //if the registration has been changed update it
+        registration.update();
+      }
+      catch(e){
+        console.log(e);
+      }
     }
     else{
       console.log("Service Workers not supported");
@@ -75,7 +80,7 @@
 
 <style>
   .headerBar{
-    height: 35px;
+    height: 45px;
     background: var(--blue);
   }
   #pageContent{
