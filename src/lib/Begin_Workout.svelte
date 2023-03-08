@@ -110,6 +110,7 @@
     .setName{
         font-size: 2.5rem;
         margin: 10px 0;
+        text-align: center;
     }
     .weightAndReps{
         font-size: 2rem;
@@ -119,7 +120,7 @@
         position: absolute;
         background: var(--white);
         height: 100%;
-        width: 100%;
+        width: calc(100% - 20px);
         display: flex;
         flex-direction: column;
         gap: 10px;
