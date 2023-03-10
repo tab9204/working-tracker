@@ -60,7 +60,9 @@
 </script>
 
 <svelte:window on:load="{()=>init()}"/>
-<div class="headerBar"></div>
+<div class="headerBar">
+  <img alt="just a little guy" src="./gymtime.gif">
+</div>
 <div id="pageContent">
   {#if $user}
     {#if loading}
@@ -82,6 +84,8 @@
   .headerBar{
     height: 45px;
     background: var(--blue);
+    display: flex;
+    justify-content: center;
   }
   #pageContent{
     height: 100%;

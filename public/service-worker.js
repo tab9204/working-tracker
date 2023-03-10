@@ -1,7 +1,8 @@
 var cacheName = 'offlineCache-v0';
 
 var contentToCache = [
-  './manifest.json'
+  './manifest.json',
+  "./gymtime.gif"
 ];
 
 
