@@ -87,7 +87,6 @@
     background: var(--blue);
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
   }
   main{
     height: 100%;

@@ -21,14 +21,16 @@
 {#if error}
     <div id="error">IDK something didn't work</div>
 {/if}
-<input type="text" placeholder="Username" bind:value={username}>
+<input style="margin-top:10px;" type="text" placeholder="Username" bind:value={username}>
 <input type="text" placeholder="Password" bind:value={password}>
 <button on:click={login}>Login</button>
 
 
 
 <style>
-    button{background-color: var(--blue) !important;}
+    button{
+        background-color: var(--blue) !important;
+    }
     #error{
         background: var(--red);
         padding: 5px;
