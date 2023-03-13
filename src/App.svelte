@@ -1,4 +1,5 @@
 <script>
+  import '@picocss/pico';
   import {user, pb, beginWorkout} from './lib/stores.js';
   import Login from "./lib/Login.svelte";
   import Workout from './lib/Workout.svelte';
@@ -60,10 +61,10 @@
 </script>
 
 <svelte:window on:load="{()=>init()}"/>
-<div class="headerBar">
+<header>
   <img alt="just a little guy" src="./gymtime.gif">
-</div>
-<div id="pageContent">
+</header>
+<main class="container">
   {#if $user}
     {#if loading}
       <Loading/>
@@ -77,23 +78,19 @@
   {:else}
     <Login/>
   {/if}
-</div>
+</main>
 
 
 <style>
-  .headerBar{
+  header{
     height: 45px;
     background: var(--blue);
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
   }
-  #pageContent{
+  main{
     height: 100%;
     overflow-y: auto;
-    width: calc(100% - 20px);
-    max-width: 640px;
-    background: var(--white); 
-    padding:10px;
-    margin: 0px auto;
   }
 </style>

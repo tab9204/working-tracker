@@ -14,40 +14,21 @@
             error = true;
             setTimeout(()=>{
                 error = false;
-            },4000)
+            },5000)
         }
     }
 </script>
 {#if error}
     <div id="error">IDK something didn't work</div>
 {/if}
-<div class="login">
-    <input type="text" placeholder="Username" bind:value={username}>
-    <input type="text" placeholder="Password" bind:value={password}>
-    <button on:click={login}>Login</button>
-</div>
+<input type="text" placeholder="Username" bind:value={username}>
+<input type="text" placeholder="Password" bind:value={password}>
+<button on:click={login}>Login</button>
 
 
 
 <style>
-    .login{
-        display: flex;
-        flex-direction: column;
-        gap: 15px
-    }
-    .login input{
-        font-size: 1.5rem;
-    }
-    .login button{
-        width: 50%;
-        font-size: 1.5rem;
-        padding: 5px;
-        margin-top: 10px;
-        align-self: center;
-        background: var(--blue);
-        border: none;
-        border-radius: 5px;
-    }
+    button{background-color: var(--blue) !important;}
     #error{
         background: var(--red);
         padding: 5px;
@@ -57,5 +38,6 @@
         left: 50%;
         transform: translate(-50%,-50%);
         text-align: center;
+        color:black;
     }
 </style>

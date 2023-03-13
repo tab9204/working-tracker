@@ -47,29 +47,27 @@
 {#if loading}
     <Loading/>
 {:else}
-    <div class="workout">
-        <button class="exit" on:click={()=>{beginWorkout.set(false);}}><Icon icon={"cross"}/></button>
+    <div id="workout">
+       <div id="exit">
+            <Icon icon={"cross"} click={()=>{beginWorkout.set(false);}}/>
+        </div>
         {#if set < workout.sets.length}
             {#if showPopup}
-                <div class="incrementPopup">
+                <div class="popup">
                     <button on:click={incrementSetReps}>Increase Reps</button>
                     <button on:click={incrementSetWeight}>Increase Weight</button>
                 </div>
             {/if}
             {#key set}
             <div class="details" in:fade>
-                <div class="setName">
-                    {workout.sets[set].name}
-                </div>
-                <div class="weightAndReps">
-                    <div>{workout.sets[set].weight} lbs x {workout.sets[set].reps}</div>
-                </div>
+                <hgroup style="text-align:center;">
+                    <h1>{workout.sets[set].name}</h1>
+                    <h2 style="font-size:1.5rem;">{workout.sets[set].weight} lbs x {workout.sets[set].reps}</h2>
+                </hgroup>
             </div>
             {/key}
-            <div class="passFail">
-                <button style="background: var(--green);" on:click={()=>{showPopup = true;}}><Icon icon={"check"}/></button>
-                <button style="background: var(--red);" on:click={()=>{set = set += 1;}}><Icon icon={"cross"}/></button>
-            </div>
+            <button style="background: var(--green);" on:click={()=>{showPopup = true;}}><Icon icon={"check"}/></button>
+            <button style="background: var(--red);" on:click={()=>{set = set += 1;}}><Icon icon={"cross"}/></button>
         {:else}
             <div>You're all done. Good jorb!</div>
         {/if}
@@ -79,58 +77,36 @@
 
 
 <style>
-    .workout{
+    #workout {
+        position: relative;
         display: flex;
         flex-direction: column;
         height: 100%;
         gap: 20px;
     }
-    .exit{
+    #exit{
         width: 40px;
         height: 40px;
-        border:none;
     }
     .details{
         flex-grow: 2;
-        align-self: center;
     }
-    .passFail{
-        display: flex;
-        flex-direction: column;
-        width: 90%;
-        gap: 15px;
-        margin: 0px auto;
-    }
-    .passFail button{
-        height: 55px;
+    button{
         border: 1px solid;
-        border-radius: 5px;
     }
-    .setName{
-        font-size: 2.5rem;
-        margin: 10px 0;
-        text-align: center;
-    }
-    .weightAndReps{
-        font-size: 2rem;
-        text-align: center;
-    }
-    .incrementPopup{
+    .popup{
         position: absolute;
         background: var(--white);
         height: 100%;
-        width: calc(100% - 20px);
+        width: 100%;
         display: flex;
+        justify-content: space-evenly;
         flex-direction: column;
         gap: 10px;
     }
-    .incrementPopup button{
-        width: 90%;
+    .popup button{
         height: 45%;
-        align-self: center;
         font-size: 1.5rem;
-        border: 1px solid;
-        border-radius: 5px;
         background: var(--smoke);
     }
 </style>
