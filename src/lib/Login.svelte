@@ -1,6 +1,7 @@
 <script>
-    import {pb, user} from "./stores";
-
+    import {user, allWorkouts} from "./stores";
+    import {pb, getAllWorkouts} from "./pocketbase";
+ 
     let username;
     let password;
     let error;
@@ -9,6 +10,10 @@
         try{
             await pb.collection('users').authWithPassword(username, password);
             user.set(pb.authStore.model);
+            const workouts = await getAllWorkouts();
+            setTimeout(()=>{
+                allWorkouts.set(workouts);
+            },1000);
         }
         catch(e){
             error = true;

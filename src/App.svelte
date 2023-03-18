@@ -1,19 +1,20 @@
 <script>
   import '@picocss/pico';
-  import {user, pb, beginWorkout} from './lib/stores.js';
+  import {user, beginWorkout, allWorkouts} from './lib/stores.js';
+  import {pb, getAllWorkouts} from "./lib/pocketbase";
   import Login from "./lib/Login.svelte";
   import Workout from './lib/Workout.svelte';
   import Begin_Workout from './lib/Begin_Workout.svelte';
   import Loading from "./lib/Loading.svelte";
 
   let loading = true;
-  let allWorkouts;
 
 
   const init = async ()=>{
     await serviceWorkerRegistration();
-    allWorkouts = await getAllWorkouts();
+    const workouts = await getAllWorkouts();
     setTimeout(()=>{
+        allWorkouts.set(workouts);
         loading = false;
     },1000);
   }
@@ -36,27 +37,6 @@
     } 
   }
 
-  const getAllWorkouts = async ()=>{
-    let workouts = [];
-    const request = await pb.collection('workouts').getFullList(200, {sort: '-name'});
-    request.forEach((workout)=>{
-      const data = {
-          name: workout.name,
-          id: workout.id,
-          sets: workout.sets,
-          breakdown: []
-      }
-      //a workout breakdown lists out every type of set in the workout
-      workout.sets.forEach(set => {
-          if(!data.breakdown.includes(set.name)){
-            data.breakdown.push(set.name);
-          }
-      });
-      workouts.push(data);
-    });
-    return workouts;
-  }
-
 
 </script>
 
@@ -66,14 +46,14 @@
 </header>
 <main class="container">
   {#if $user}
-    {#if loading}
+    {#if $allWorkouts.length <= 0}
       <Loading/>
     {:else if $beginWorkout}
       <Begin_Workout/>
     {:else}
-      {#each allWorkouts as workout}
+      {#each $allWorkouts as workout}
         <Workout {workout}/>
-      {/each}
+      {/each}      
     {/if}
   {:else}
     <Login/>

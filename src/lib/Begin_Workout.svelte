@@ -1,7 +1,8 @@
 <script>
     import {onMount} from 'svelte';
     import {fade} from 'svelte/transition';
-    import {pb, beginWorkout, currentWorkoutId} from "./stores.js";
+    import {pb} from './pocketbase.js';
+    import {beginWorkout, currentWorkoutId} from "./stores.js";
     import Icon from './Icon.svelte';
     import Loading from "./Loading.svelte";
 
