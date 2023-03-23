@@ -7,15 +7,12 @@
   import Begin_Workout from './lib/Begin_Workout.svelte';
   import Loading from "./lib/Loading.svelte";
 
-  let loading = true;
-
 
   const init = async ()=>{
     await serviceWorkerRegistration();
     const workouts = await getAllWorkouts();
     setTimeout(()=>{
         allWorkouts.set(workouts);
-        loading = false;
     },1000);
   }
 
