@@ -54,13 +54,14 @@
             </section>
         {/each}
     </div>
-    <div id="save">
-        <Icon icon={"check"} click={ async ()=>{
-            await saveWorkoutDetails();
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div id="save" on:click={async ()=>{
+       await saveWorkoutDetails();
             setTimeout(()=>{
                 editWorkout.set(false);
-            },1000);
-        }}/>
+            },1000); 
+        }}>
+        <Icon icon={"check"}/>
     </div>
 {/if}
 
