@@ -7,6 +7,13 @@
     --smoke: #D1D1D1;
     --green: #659B5E; 
     --color: black !important; 
+    --h1-color: black !important; 
+    --h2-color: black !important;
+    --h3-color: black !important;
+    --h4-color: black !important;
+    --h5-color: black !important;
+    --h6-color: black !important;
+    --h7-color: black !important;
 }
 ::-webkit-scrollbar {width: 0px;}
 input:focus{outline:none !important;}

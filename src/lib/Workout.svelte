@@ -1,29 +1,25 @@
 <script>
-    import {beginWorkout, currentWorkoutId} from "./stores.js";
+    import {startWorkout, selectedWorkoutId, editWorkout} from "./stores.js";
     import Icon from './Icon.svelte';
 
     export let workout;
 
-    let expandSection = false;
 </script>
 
 <article>
     <header>
         {workout.name}
-            <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <div class="startIcon" on:click={()=>{
-                currentWorkoutId.set(workout.id);
-                beginWorkout.set(true);
-            }}>
-                <Icon icon={"start"} click={()=>{
-                    currentWorkoutId.set(workout.id);
-                    beginWorkout.set(true);
-                }}/>
-            </div>
     </header>
-    {#each workout.breakdown as set}
-        <div>{set}</div>
-    {/each}
+    <div class="icons">
+        <Icon icon={"edit"} click={()=>{
+            selectedWorkoutId.set(workout.id);
+            editWorkout.set(true);
+        }} />
+        <Icon icon={"start"} click={()=>{
+            selectedWorkoutId.set(workout.id);
+            startWorkout.set(true);
+        }}/>
+    </div>
 </article>
 
 
@@ -33,5 +29,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center; 
+    }
+
+    .icons{
+        display: flex;
+        gap: 15px;
     }
 </style>

@@ -10,8 +10,10 @@ if(!pb.authStore.isValid){
 export const user = writable(pb.authStore.model);
 
 
-export const beginWorkout = writable(false);
+export const startWorkout = writable(false);
 
-export const currentWorkoutId = writable(null);
+export const editWorkout = writable(false);
+
+export const selectedWorkoutId = writable(null);
 
 export let allWorkouts = writable([]);

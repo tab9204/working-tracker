@@ -15,6 +15,8 @@
         <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40"><path d="M11.125 35Q10 35 9.188 34.167q-.813-.834-.813-1.959V9.167H6.667V6.375h8V5h10.666v1.375h8v2.792h-1.708v23.041q0 1.125-.813 1.959Q30 35 28.875 35Zm4.083-6.292h2.75V12.625h-2.75Zm6.834 0h2.75V12.625h-2.75Z"/></svg>
     {:else if icon == "add"}
         <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40"><path d="M18.625 31.667V21.375H8.333v-2.75h10.292V8.333h2.75v10.292h10.292v2.75H21.375v10.292Z"/></svg>
+    {:else if icon == "remove"}
+        <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 96 960 960" width="40"><path d="M200 609.333v-66.666h560v66.666H200Z"/></svg>
     {:else if icon == "cross"}
         <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40"><path d="m10.458 31.458-1.916-1.916 9.5-9.542-9.5-9.542 1.916-1.916 9.542 9.5 9.542-9.5 1.916 1.916-9.5 9.542 9.5 9.542-1.916 1.916-9.542-9.5Z"/></svg>
     {:else if icon == "check"}
@@ -23,6 +25,8 @@
         <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40"><path d="m20 25.625-10-10 1.958-1.958L20 21.708l8.042-8.041 1.958 2Z"/></svg>
     {:else if icon == "start"}
         <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40"><path d="M3.333 30V10h2.792v20Zm23.292.042-1.958-1.959 6.666-6.708H9.958v-2.75h21.375l-6.625-6.708 1.917-1.959L36.667 20Z"/></svg>
+    {:else if icon == "edit"}
+        <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 96 960 960" width="40"><path d="M786.667 410.999 644.668 269.666 691.334 223q19-19 47.167-18.667 28.166.334 47.166 19.334L833 271q19 18.999 19.333 46.499.334 27.5-18.666 46.5l-47 47Zm-47.333 47.666L261.999 936H120V794.001l477.335-477.335 141.999 141.999Z"/></svg>
     {:else}
         <p>No icon</p>
     {/if}

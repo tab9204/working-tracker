@@ -1,10 +1,11 @@
 <script>
   import '@picocss/pico';
-  import {user, beginWorkout, allWorkouts} from './lib/stores.js';
+  import {user, startWorkout, editWorkout, allWorkouts} from './lib/stores.js';
   import {pb, getAllWorkouts} from "./lib/pocketbase";
   import Login from "./lib/Login.svelte";
   import Workout from './lib/Workout.svelte';
-  import Begin_Workout from './lib/Begin_Workout.svelte';
+  import Workout_Start from './lib/Workout_Start.svelte';
+  import Workout_Edit from './lib/Workout_Edit.svelte';
   import Loading from "./lib/Loading.svelte";
 
 
@@ -42,18 +43,18 @@
   <img alt="just a little guy" src="./gymtime.gif">
 </header>
 <main class="container">
-  {#if $user}
-    {#if $allWorkouts.length <= 0}
-      <Loading/>
-    {:else if $beginWorkout}
-      <Begin_Workout/>
-    {:else}
-      {#each $allWorkouts as workout}
-        <Workout {workout}/>
-      {/each}      
-    {/if}
-  {:else}
+  {#if !$user}
     <Login/>
+  {:else if $allWorkouts.length <= 0}
+    <Loading/>
+  {:else if $startWorkout}
+    <Workout_Start/>
+  {:else if $editWorkout}
+    <Workout_Edit/>
+  {:else}
+    {#each $allWorkouts as workout}
+      <Workout {workout}/>
+    {/each} 
   {/if}
 </main>
 
@@ -64,6 +65,7 @@
     background: var(--blue);
     display: flex;
     justify-content: center;
+    gap:10px;
   }
   main{
     height: 100%;

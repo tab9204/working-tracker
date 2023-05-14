@@ -1,8 +1,8 @@
 <script>
     import {onMount} from 'svelte';
     import {fade} from 'svelte/transition';
-    import {pb} from './pocketbase.js';
-    import {beginWorkout, currentWorkoutId} from "./stores.js";
+    import {getWorkoutDetails, updateWorkout} from './pocketbase.js';
+    import {startWorkout, selectedWorkoutId} from "./stores.js";
     import Icon from './Icon.svelte';
     import Loading from "./Loading.svelte";
 
@@ -13,24 +13,16 @@
     let workout;
 
     onMount(async ()=>{
-       await getWorkoutDetails();
+        workout = await getWorkoutDetails($selectedWorkoutId);
        setTimeout(()=>{
         loading = false;
        },1000);
     })
 
-    const getWorkoutDetails = async ()=>{
-        const details = await pb.collection('workouts').getOne($currentWorkoutId);
-        workout = {
-            id: details.id,
-            sets: details.sets
-        }
-    }
-
     const incrementSetReps = ()=>{
         workout.sets[set].reps += 1;
         const updatedSetData = {"sets": workout.sets};
-        pb.collection('workouts').update(workout.id, updatedSetData);
+        updateWorkout(workout.id, updatedSetData)
         set = set += 1;
         showPopup = false;
     }
@@ -38,7 +30,7 @@
     const incrementSetWeight= ()=>{
         workout.sets[set].weight += 2.5;
         const updatedSetData = {"sets": workout.sets};
-        pb.collection('workouts').update(workout.id, updatedSetData);
+        updateWorkout(workout.id, updatedSetData)
         set = set += 1;
         showPopup = false;
     }
@@ -50,7 +42,7 @@
 {:else}
     <div id="workout">
        <div id="exit">
-            <Icon icon={"cross"} click={()=>{beginWorkout.set(false);}}/>
+            <Icon icon={"cross"} click={()=>{startWorkout.set(false);}}/>
         </div>
         {#if set < workout.sets.length}
             {#if showPopup}
