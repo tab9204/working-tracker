@@ -27,7 +27,7 @@
     <div id="error">IDK something didn't work</div>
 {/if}
 <input style="margin-top:10px;" type="text" placeholder="Username" bind:value={username}>
-<input type="text" placeholder="Password" bind:value={password}>
+<input type="password" placeholder="Password" bind:value={password}>
 <button on:click={login}>Login</button>
 
 
